@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07111f">
+    <title>Networking Essentials | CyberShield Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Course Page Specific Styles */
+        .course-detail-header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--line);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--mint);
+            font-size: 13px;
+            margin-bottom: 24px;
+            font-family: var(--font-mono);
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .course-detail-header h1 {
+            font: 600 clamp(32px, 4vw, 48px)/1.1 var(--font-display);
+            margin: 10px 0 16px;
+            letter-spacing: -1.5px;
+        }
+        .lesson-list {
+            display: grid;
+            gap: 18px;
+            padding: 50px 0 90px;
+        }
+        .lesson-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .lesson-card:hover {
+            border-color: rgba(69, 183, 255, 0.45);
+        }
+        .lesson-card.active {
+            border-color: var(--mint);
+            background: var(--surface-raised);
+        }
+        .lesson-header {
+            padding: 24px 28px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .lesson-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--blue);
+        }
+        .lesson-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .lesson-card h3 {
+            margin: 0 0 8px;
+            font: 600 20px var(--font-display);
+            color: var(--text);
+        }
+        .toggle-icon {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: rgba(69, 183, 255, 0.1);
+            color: var(--mint);
+            font-family: var(--font-mono);
+            font-size: 18px;
+            flex-shrink: 0;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+        .lesson-card.active .toggle-icon {
+            transform: rotate(45deg);
+            background: rgba(88, 224, 183, 0.18);
+        }
+        .lesson-summary {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Expandable Article / Notes Area */
+        .lesson-content {
+            display: none;
+            padding: 0 28px 28px;
+            border-top: 1px solid var(--line);
+            margin-top: 4px;
+            color: #d6e2ef;
+            font-size: 14.5px;
+            line-height: 1.75;
+        }
+        .lesson-card.active .lesson-content {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+        .lesson-content h4 {
+            color: var(--mint);
+            font: 600 15px var(--font-display);
+            margin: 20px 0 8px;
+        }
+        .lesson-content ul {
+            margin: 8px 0 16px;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+        .lesson-content li {
+            margin-bottom: 6px;
+        }
+        .lesson-content strong {
+            color: var(--text);
+        }
+        .security-tip {
+            background: rgba(88, 224, 183, 0.08);
+            border-left: 3px solid var(--mint);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 16px;
+            font-size: 13.5px;
+            color: #cdebe1;
+        }
+        code {
+            font-family: var(--font-mono);
+            background: rgba(7, 17, 31, 0.8);
+            padding: 2px 6px;
+            border-radius: 5px;
+            color: var(--blue);
+            font-size: 13px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4717365298826894" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">⌑</span>
+            <span>CyberShield <strong>Academy</strong></span>
+        </a>
+        <nav class="main-nav">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#courses">Learning paths</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
+            <a class="nav-cta" href="auth.html">Sign in <span>↗</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="course-detail-header">
+            <div class="section-wrap">
+                <a href="index.html#courses" class="back-link">← Back to all learning paths</a>
+                <p class="eyebrow"><span class="status-dot"></span> FOUNDATION · 6 LESSONS (CLICK ANY LESSON TO READ)</p>
+                <h1>Networking Essentials</h1>
+                <p class="hero-description" style="margin-bottom: 0;">Understand how devices communicate over the internet, how data travels in packets, and build the core network knowledge every cybersecurity learner needs.</p>
+            </div>
+        </section>
+
+        <section class="section-wrap lesson-list">
+            <!-- LESSON 1 -->
+            <article class="lesson-card">
+                <div class="lesson-header" onclick="toggleLesson(this)">
+                    <div class="lesson-meta">
+                        <span>LESSON 01 · CLICK TO EXPAND</span>
+                        <span>10 MIN READ</span>
+                    </div>
+                    <div class="lesson-title-row">
+                        <div>
+                            <h3>1. How the Internet & Networks Work</h3>
+                            <p class="lesson-summary">Learn the basics of LAN, WAN, routers, and switches, and how your device connects to servers across the world.</p>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="lesson-content">
+                    <h4>What is a Network?</h4>
+                    <p>A computer network is simply two or more devices connected together to share data and resources. Whether you are sending a message or loading a website, your data travels across multiple connected devices.</p>
+                    <h4>Key Network Components</h4>
+                    <ul>
+                        <li><strong>LAN (Local Area Network):</strong> A small network within a single building, like your home Wi-Fi or an office network.</li>
+                        <li><strong>WAN (Wide Area Network):</strong> A large network spanning cities or countries. The Internet is the largest WAN in the world.</li>
+                        <li><strong>Switch:</strong> Connects multiple devices inside a single local network (LAN) and sends data only to the intended device.</li>
+                        <li><strong>Router:</strong> Connects different networks together (for example, connecting your home LAN to the Internet).</li>
+                    </ul>
+                    <div class="security-tip">
+                        <strong>Security Takeaway:</strong> Always change the default admin password on your home router, as it is the main gateway between your devices and the public internet.
+                    </div>
+                </div>
+            </article>
+
+            <!-- LESSON 2 -->
+            <article class="lesson-card">
+                <div class="lesson-header" onclick="toggleLesson(this)">
+                    <div class="lesson-meta">
+                        <span>LESSON 02 · CLICK TO EXPAND</span>
+                        <span>12 MIN READ</span>
+                    </div>
+                    <div class="lesson-title-row">
+                        <div>
+                            <h3>2. IP Addresses & MAC Addresses</h3>
+                            <p class="lesson-summary">Discover the difference between physical hardware addresses (MAC) and logical network addresses (IPv4 & IPv6).</p>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="lesson-content">
+                    <h4>Two Types of Addresses</h4>
+                    <p>To send data to the right destination, networks rely on two distinct addressing systems working together:</p>
+                    <ul>
+                        <li><strong>MAC Address (Physical):</strong> A permanent, unique identifier burned into your device's network card (e.g., <code>00:1A:2B:3C:4D:5E</code>). Used inside local networks.</li>
+                        <li><strong>IP Address (Logical):</strong> A temporary address assigned to your device when it joins a network (e.g., <code>192.168.1.15</code> for IPv4). It changes when you switch Wi-Fi networks.</li>
+                    </ul>
+                    <h4>Public vs. Private IP</h4>
+                    <p>Your <strong>Private IP</strong> identifies your device inside your home network, while your <strong>Public IP</strong> is assigned by your Internet Service Provider (ISP) and is visible to the outside world.</p>
+                    <div class="security-tip">
+
+                    

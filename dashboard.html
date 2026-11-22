@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07111f">
+    <meta name="description" content="Your CyberShield Academy learning dashboard and course progress.">
+    <title>My Learning | CyberShield Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+    <header class="app-header">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">⌑</span><span>CyberShield <strong>Academy</strong></span></a>
+        <nav aria-label="Dashboard navigation"><a href="index.html#courses">Explore paths</a><button class="small-button danger-button" id="logoutBtn" type="button">Sign out</button></nav>
+    </header>
+    <main class="app-container">
+        <section class="dashboard-top">
+            <div>
+                <p class="eyebrow"><span class="status-dot"></span> YOUR LEARNING SPACE</p>
+                <h1 id="welcomeText">Welcome back<span>.</span></h1>
+                <p class="app-muted">Start with beginner concepts and progress to advanced defensive skills. Every lesson includes a visual map, a real-world example, safe practice, and a quick check.</p>
+            </div>
+            <button class="small-button" id="resetProgress" type="button">Reset progress</button>
+        </section>
+        <section class="dashboard-stats" aria-label="Learning statistics">
+            <div class="stat-card"><strong id="pathsStarted">0</strong><span>Paths started</span></div>
+            <div class="stat-card"><strong id="lessonsCompleted">0</strong><span>Lessons completed</span></div>
+            <div class="stat-card"><strong id="overallProgress">0%</strong><span>Overall progress</span></div>
+        </section>
+        <div class="dashboard-section-title"><h2>Your learning paths</h2><span class="course-count">15 PATHS</span></div>
+        <section class="dashboard-courses" id="dashboardCourses" aria-live="polite"></section>
+        <p id="dashboardMessage" class="auth-message" role="status" aria-live="polite"></p>
+    </main>
+    <footer class="app-footer">Progress syncs with your account · Practice only with permission</footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="curriculum.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
