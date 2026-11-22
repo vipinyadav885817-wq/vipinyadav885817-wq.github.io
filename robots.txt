@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vipinyadav885817-wq.github.io/sitemap.xml
